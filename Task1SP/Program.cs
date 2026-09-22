@@ -22,12 +22,13 @@ class Program
             {
                 Console.WriteLine(processes[i].ProcessName);
             }
-            Thread.Sleep(500);
+            Thread.Sleep(500);   
         }
     }
 
     static void Command()
     {
+        var processes = Process.GetProcessesByName("chrome");
         while (true)
         {
             var command = Console.ReadLine();
@@ -37,7 +38,6 @@ class Program
             }
             else if (command.Contains("kill"))
             {
-                var processes = Process.GetProcessesByName("chrome");
 
                 foreach (Process process in processes)
                 {
